@@ -6,3 +6,11 @@
     display: none;
 } 
 
+.block {
+    display: block;
+}
+
+.nextBtn {
+    padding-top: 150px;
+}
+
