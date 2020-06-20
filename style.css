@@ -2,9 +2,9 @@
     text-align: center;
 }
 
- .none {
+  .none {
     display: none;
-} 
+}  
 
 .block {
     display: block;
@@ -16,4 +16,27 @@
 
 .header {
     align-content: center;
+    background-color: white;
+}
+
+body {
+    background-color: red;
+}
+
+.directions {
+    background-color: red;
+}
+
+.title {
+    color: white;
+    font-family: Classic Comic;
+}
+
+.button {
+    background-color: white;
+    color: red; 
+}
+
+.stat {
+    color: red;
 }
