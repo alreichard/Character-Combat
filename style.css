@@ -27,11 +27,6 @@ body {
     background-color: red;
 }
 
-.title {
-    color: white;
-    font-family: Classic Comic;
-}
-
 .button {
     background-color: white;
     color: red; 
@@ -39,4 +34,8 @@ body {
 
 .stat {
     color: red;
+}
+
+.title {
+    color: black;
 }
