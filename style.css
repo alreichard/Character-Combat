@@ -2,9 +2,9 @@
     text-align: center;
 }
 
-  .none {
+ .none {
     display: none;
-}  
+}    
 
 .block {
     display: block;
@@ -39,3 +39,13 @@ body {
 .title {
     color: black;
 }
+
+.vs {
+    padding-top: 300px;
+    padding-left: 150px;
+}
+
+.footer {
+    padding: 15px;
+}
+
