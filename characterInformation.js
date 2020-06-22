@@ -1,17 +1,21 @@
 // Function for Character 1
 // ===============================================
+
+$(document).ready(function(){
+
 $(".searchOne").on('click', function (event) {
     event.preventDefault();
     // Variables
     // ===============================================
+    
     var characterName = $("#character-name").val()
 
     $("#character-name").empty();
-
+    $(".statsOne").empty();
     // API Calls
     var apiKey = "10158186976410619"
-    var queryURL = "https://superheroapi.com/api/" + apiKey + "/search/" + characterName;
-    // console.log(queryURL)
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/" + apiKey + "/search/" + characterName;
+    console.log(queryURL)
 
     var ajax = $.ajax({
         url: queryURL,
@@ -19,20 +23,19 @@ $(".searchOne").on('click', function (event) {
     })
 
     $.when(ajax).done(function (response) {
-        var results = response;
+        var results = response.results[0];
         console.log(results)
-
-        $(".statsOne").empty();
-
-        var name = $("<h3>").html(results.name);
-        var intelligence = $("<p>").html(results.powerstats.intelligence)
-        var strength = $("<p>").html(results.powerstats.strength)
-        var speed = $("<p>").html(results.powerstats.speed)
-        var durability = $("<p>").html(results.powerstats.durability)
-        var power = $("<p>").html(results.powerstats.power)
-        var combat = $("<p>").html(results.powerstats.combat)
-
+        
+        var name = $("<h3>").text(results.name);
+        var intelligence = $("<p>").text(results.powerstats.intelligence)
+        var strength = $("<p>").text(results.powerstats.strength)
+        var speed = $("<p>").text(results.powerstats.speed)
+        var durability = $("<p>").text(results.powerstats.durability)
+        var power = $("<p>").text(results.powerstats.power)
+        var combat = $("<p>").text(results.powerstats.combat)
+        
         // Transfer the Open Weather object into the respected fields in our html
+        // $(".card").removeAttr("none")
         $(".statsOne").append(name, intelligence, strength, speed, durability, power, combat)
     })
 
@@ -44,7 +47,7 @@ $(".searchOne").on('click', function (event) {
 //     event.preventDefault();
 //     // Variables
 //     // ===============================================
-//     var characterName2 = $("#character-name2").val()  
+//     var characterName2 = $("#character-name2").val()
 //     $("#character-name2").empty();
 //     // API Calls
 //     var apiKey = "10158186976410619"
@@ -70,10 +73,11 @@ $(".searchOne").on('click', function (event) {
 //         var speed = $("<p>").html(results.powerstats.speed)
 //         var durability = $("<p>").html(results.powerstats.durability)
 //         var power = $("<p>").html(results.powerstats.power)
-//         var combat = $("<p>").html(results.powerstats.combat) 
+//         var combat = $("<p>").html(results.powerstats.combat)
 
 //         // Transfer the Open Weather object into the respected fields in our html
 //         $(".statsTwo").append(name, intelligence, strength, speed, durability, power, combat)
 //     })
 
 // })
+})
