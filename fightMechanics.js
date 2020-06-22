@@ -1,11 +1,11 @@
 //filler
 var hero1 = "superman"
 var speed1 = 100;
-var intelegence1 = 20;
+var intelegence1 = 10;
 var power1 = 100;
 var strength1 = 100;
 var durability1 = 100;
-var combat1 = 10;
+var combat1 = 100;
 
 var hero2 = "batman"
 var speed2 = 60;
@@ -78,8 +78,8 @@ var healthKeep2 = (.5 * durability2) + 150;
 //health
 
 // damage ability of heros
-var damage1 = (.05 * (power1 + strength1) + 10)
-var damage2 = (.05 * (power1 + strength1) + 10)
+var damage1 = (.07 * (power1 + strength1) + 10)
+var damage2 = (.07 * (power2 + strength2) + 10)
 
 // amount of extra damage dealt for special move
 var combatStuff1 = (combat1 * .1);
@@ -109,7 +109,7 @@ $("#PlayerTwo").text(hero2)
 // click system to start each round
 nextMove.on("click", function () {
     //hide button while round is in progress
-    nextMove.attr("class", "hide")
+    nextMove.addClass("is-hidden")
     //which player goes this turn
     if (evenOdd / 2 != Math.round(evenOdd / 2)) {
 
@@ -130,12 +130,12 @@ nextMove.on("click", function () {
 // function player1 if a combat move is used, redirected here
 $(document).on("click", "#combatify1", function () {
     //click on button, and it will disapear
-    $("#combatify1").attr("class", "hide")
+    $("#combatify1").addClass("is-hidden")
     // asdds special combat damage to normal damage 
     damageDealt = hitPower1 + combatStuff1
     // if a block is iniated, new button is created. user must the click button with the combatify id
     if (10 < Block && Block < blockAbility2) {
-        $("#blockify2").attr("class", "show");
+        $("#blockify2").removeClass("is-hidden");
 
 
     } 
@@ -147,11 +147,11 @@ $(document).on("click", "#combatify1", function () {
 })
  //same as combatify 1
 $(document).on("click", "#combatify2", function () {
-    $("#combatify2").attr("class", "hide")
+    $("#combatify2").addClass("is-hidden")
     damageDealt = hitPower2 + combatStuff2
     
     if (10 < Block && Block < blockAbility1) {
-        $("#blockify1").attr("class", "show");
+        $("#blockify1").removeClass("is-hidden");
 
 
     } else {
@@ -162,7 +162,7 @@ $(document).on("click", "#combatify2", function () {
 
 // final option, a block
 $(document).on("click", "#blockify2", function () {
-    $("#blockify2").attr("class", "hide")
+    $("#blockify2").addClass("is-hidden")
     // if a block is initiated, the opposite hero whose turn it is not will take only half damage
     damageDealt = damageDealt / 2
     // run end turn function
@@ -171,7 +171,7 @@ $(document).on("click", "#blockify2", function () {
  
 // same as blockify 1
 $(document).on("click", "#blockify1", function () {
-   $("#blockify1").attr("class", "hide")
+   $("#blockify1").addClass("is-hidden")
     damageDealt = damageDealt / 2
     player2End()
 
@@ -193,7 +193,7 @@ function player1() {
     // the number created by hero intelegence: smarter = higher chance
     if (10 < Combat && Combat < intelegenceAspect1) {
         // creates button and waits for user to click the combatify buttons above
-        $("#combatify1").attr("class", "show");
+        $("#combatify1").removeClass("is-hidden");
 
 
 
@@ -205,9 +205,10 @@ function player1() {
         // similar to bombat move: faster the player, higher chance of blocking show
         if (10 < Block && Block < blockAbility2) {
             // creates button and waits for user to click blockify button above 
-            $("#blockify2").attr("class", "show");
-
-            damageDealt = damageDealt / 2
+            $("#blockify2").removeClass("is-hidden");
+            console.log(hitPower1)
+            
+            
         } 
         // neither a block or special move, it runs function to change health levels
         else {
@@ -231,7 +232,7 @@ function player2() {
     
 
     if (10 < Combat && Combat < intelegenceAspect2) {
-        $("#combatify2").attr("class", "show");
+        $("#combatify2").removeClass("is-hidden");
 
 
 
@@ -240,10 +241,10 @@ function player2() {
         damageDealt = hitPower2
         if (10 < Block && Block < blockAbility1) {
             
-            $("#blockify1").attr("class", "show");
+            $("#blockify1").removeClass("is-hidden");
          
 
-            damageDealt = damageDealt / 2
+            
         } else {
             player2End()
         }
@@ -267,7 +268,7 @@ function player1End(){
             if (health2 <= 0) {
                 location.replace("https://www.w3schools.com")
             }
-            nextMove.attr("class", "show")
+            nextMove.removeClass("is-hidden")
 }
 
 function player2End(){
@@ -291,5 +292,5 @@ function player2End(){
                 location.replace("https://www.w3schools.com")
             }
             // shows fight button to allow next player to go 
-            nextMove.attr("class", "show")
+            nextMove.removeClass("is-hidden")
 }
