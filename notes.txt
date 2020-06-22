@@ -1,0 +1,29 @@
+{
+  "response": "success",
+  "results-for": "joker",
+  "results": [
+    
+      "id": "370",
+      "name": "Joker",
+      "powerstats": {
+        "intelligence": "100",
+        "strength": "10",
+        "speed": "12",
+        "durability": "60",
+        "power": "43",
+        "combat": "70"
+      
+
+        "place-of-birth": "-",
+        "first-appearance": "Batman #1 (Spring 1940)",
+        "publisher": "DC Comics",
+        "alignment": "bad"
+      },
+
+      "image": {
+        "url": "https://www.superherodb.com/pictures2/portraits/10/100/719.jpg"
+
+
+appending stats to pStats and pStats2
+
+searching for characters in textarea
