@@ -1,0 +1,51 @@
+.info {
+    text-align: center;
+}
+
+ .none {
+    display: none;
+}    
+
+.block {
+    display: block;
+}
+
+.nextBtn {
+    padding-top: 150px;
+}
+
+.header {
+    align-content: center;
+    background-color: white;
+}
+
+body {
+    background-color: red;
+}
+
+.directions {
+    background-color: red;
+}
+
+.button {
+    background-color: white;
+    color: red; 
+}
+
+.stat {
+    color: red;
+}
+
+.title {
+    color: black;
+}
+
+.vs {
+    padding-top: 300px;
+    padding-left: 150px;
+}
+
+.footer {
+    padding: 15px;
+}
+
