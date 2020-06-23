@@ -97,10 +97,11 @@ $(document).ready(function () {
     //Saving Function
     var arrSearchedCharacters = JSON.parse(localStorage.getItem("text"))
     $(".searchOne").on("click", function () {
-        var Character = $(".character-name", ".character-name2").val()
-
+        var Character = $(".character-name",).val()
+        
         arrSearchedCharacters.push({
-            characters: Character,
+            name: Character, 
+            stats: image, intelligence, strength, speed, durability
         })
 
         localStorage.setItem("text", JSON.stringify(arrSearchedCharacters));
