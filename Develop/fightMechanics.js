@@ -9,11 +9,11 @@ var combat1 = 100;
 
 var hero2 = "batman"
 var speed2 = 100;
-var intelegence2 = 100;
+var intelegence2 = 10;
 var power2 = 100;
 var strength2 = 100;
 var durability2 = 100;
-var combat2 = 100;
+var combat2 = 10;
 //filler end
 
 // intelegency and comabt ability affect how often a hero lands a good hit on apponent
@@ -48,8 +48,8 @@ var blockAbility2 = Math.round(80 + (.2*speed2 - .1*speed1));
 var blockAbility1 = Math.round(80 + (.2*speed1 - .1*speed2));
 
 // variable for special move prequency
-var intelegenceAspect1 = Math.round(10 + (.4 * intelegence1));
-var intelegenceAspect2 = Math.round(10 + (.4 * intelegence2));
+var intelegenceAspect1 = Math.round(20 + (.3 * intelegence1));
+var intelegenceAspect2 = Math.round(20 + (.3 * intelegence2));
 
 // hero 1 health
 var healthBar1 = $(".healthBar1");
