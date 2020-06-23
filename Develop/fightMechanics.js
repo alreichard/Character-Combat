@@ -42,6 +42,8 @@ else{goodHit1 = 0};
 
 var goodHit2 = 0;
 
+// intelegence and combat ability determine how likely hero is to get a good shot 
+
 if (intelegence2+combat2>180){
      goodHit2 = 3
 }

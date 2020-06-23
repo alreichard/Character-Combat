@@ -81,6 +81,7 @@ body {
   .health-bar-text {
     position: relative;
     bottom: 80px;
+    margin-left: 140px;
   }
   
   .message-box {
