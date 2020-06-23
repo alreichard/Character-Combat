@@ -1,11 +1,9 @@
 .info {
     text-align: center;
 }
-
  .none {
     display: none;
-}    
-
+}     
 .block {
     display: block;
 }
@@ -97,12 +95,7 @@ body {
 
   }
 
-  .playerOne {
-      padding-left: 90px;
-  }
-  .playerTwo {
-    padding-left: 90px;
-}
+  
 .turn {
     color: blue;
 }
