@@ -63,6 +63,7 @@ $(".extraButton").click(function(){
 
 //How to redirect to new page in JS
 
+var gifArray = []
 var apiKey = "pMBthG1t50qSWYP65MAt6HsWKVAVj3Q1";
 var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=pow";
 
