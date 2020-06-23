@@ -93,16 +93,16 @@ $(document).ready(function () {
         })
 
     })
-    
+
     //Saving Function
     var arrSearchedCharacters = JSON.parse(localStorage.getItem("text"))
     $(".searchOne").on("click", function () {
         var Character = $(".character-name", ".character-name2").val()
-   
+
         arrSearchedCharacters.push({
             characters: Character,
         })
-        
+
         localStorage.setItem("text", JSON.stringify(arrSearchedCharacters));
     })
 
