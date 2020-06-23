@@ -144,7 +144,7 @@ $.ajax({
 
     for(var i = 0; i < 10; i++){
 
-    var gifUrl = response.data[i].images.fixed_height_small_still.url
+    var gifUrl = response.data[i].images.fixed_height.url
     
     gifArray.push(gifUrl)
     }

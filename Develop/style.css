@@ -11,7 +11,7 @@
 }
 
 .nextBtn {
-    padding-top: 150px;
+    padding-top: 108px;
 }
 
 .header {
@@ -113,6 +113,11 @@ body {
     margin: 0px 10px
 }
 
+.gifHolder{
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
 
   
   
