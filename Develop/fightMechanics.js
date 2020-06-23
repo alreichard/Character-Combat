@@ -42,6 +42,8 @@ else{goodHit1 = 0};
 
 var goodHit2 = 0;
 
+// intelegence and combat ability determine how likely hero is to get a good shot 
+
 if (intelegence2+combat2>180){
      goodHit2 = 3
 }
@@ -303,7 +305,11 @@ function player1End(){
               }, 700);
             healthBarText2.text(health2 + "/" + healthKeep2)
             if (health2 <= 0) {
-                location.replace("victor.html")
+                if (alignment1 == "bad"){
+                    location.replace("villain.html")
+                    } else {location.replace("hero.html")}
+                    var arr1 = [superAll1[8], superAll1[0]]
+                    localStorage.setItem("winner", JSON.stringify(arr1));
             }
             nextMove.removeClass("is-hidden")
             $("#PlayerTwo").addClass("turn")
@@ -329,7 +335,12 @@ function player2End(){
             healthBarText1.text(health1 + "/" + healthKeep1)
             // if a players health hits 0, match is over, brings user to next page
             if (health1 <= 0) {
-                location.replace("victor.html")
+                if (alignment2 == "bad"){
+                location.replace("villain.html")
+                } else {location.replace("hero.html")}
+                var arr1 = [superAll2[8], superAll2[0]]
+                localStorage.setItem("winner", JSON.stringify(arr1));
+
             }
             // shows fight button to allow next player to go 
             nextMove.removeClass("is-hidden")
