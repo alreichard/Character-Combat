@@ -3,7 +3,6 @@
 
 $(document).ready(function(){
 
-<<<<<<< HEAD
     $(".searchOne").on('click', function (event) {
         event.preventDefault();
         // Variables
@@ -127,30 +126,6 @@ $(document).ready(function(){
             localStorage.setItem("text2", JSON.stringify(Character));
             console.log(Character)
             console.log(image)
-=======
-$(".searchOne").on('click', function (event) {
-    event.preventDefault();
-    // Variables
-    // ===============================================
-    
-    var characterName = $("#character-name").val()
-
-    $("#character-name").empty();
-    $(".statsOne").empty();
-    // API Calls
-    var apiKey = "10158186976410619"
-    var queryURL = "https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/" + apiKey + "/search/" + characterName;
-    console.log(queryURL)
-
-    var ajax = $.ajax({
-        url: queryURL,
-        method: "GET"
-    })
-
-    $.when(ajax).done(function (response) {
-        var results = response.results[0];
-        console.log(results)
->>>>>>> 4fad918ba8b62c9a3ef479949acc95b43c5dc0e8
         
         var name = $("<h3>").text(results.name);
         var intelligence = $("<p>").text(results.powerstats.intelligence)
@@ -165,7 +140,6 @@ $(".searchOne").on('click', function (event) {
         $(".statsOne").append(name, intelligence, strength, speed, durability, power, combat)
     })
 
-<<<<<<< HEAD
     $(document).on("click", ".battle" , function(){
         location.replace("Develop/combat.html")
     });
@@ -173,9 +147,6 @@ $(".searchOne").on('click', function (event) {
     
    
 
-=======
-})
->>>>>>> 4fad918ba8b62c9a3ef479949acc95b43c5dc0e8
 
 // Function for Character 2
 // ===============================================
