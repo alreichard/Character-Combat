@@ -118,7 +118,13 @@ var combatButton2;
 $("#PlayerOne").text(hero1)
 $("#PlayerTwo").text(hero2)
 // click system to start each round
+
+var gifArray = []
+
 nextMove.on("click", function () {
+
+    $(".gifHolder img").attr("src", gifArray[Math.floor(Math.random() * gifArray.length)])
+
     //hide button while round is in progress
     nextMove.addClass("is-hidden")
     //which player goes this turn
@@ -136,6 +142,25 @@ nextMove.on("click", function () {
     }
 
 });
+
+var apiKey = "pMBthG1t50qSWYP65MAt6HsWKVAVj3Q1";
+var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=pow";
+
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function(response) {
+    console.log(response)
+
+    for(var i = 0; i < 10; i++){
+
+    var gifUrl = response.data[i].images.fixed_height.url
+    
+    gifArray.push(gifUrl)
+    }
+    console.log(gifArray)
+})
+
 
 
 // function player1 if a combat move is used, redirected here
