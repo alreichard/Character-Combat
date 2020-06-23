@@ -1,19 +1,19 @@
 //filler
 var hero1 = "superman"
 var speed1 = 100;
-var intelegence1 = 10;
+var intelegence1 = 100;
 var power1 = 100;
 var strength1 = 100;
 var durability1 = 100;
 var combat1 = 100;
 
 var hero2 = "batman"
-var speed2 = 60;
-var intelegence2 = 100;
-var power2 = 50;
-var strength2 = 50;
-var durability2 = 60;
-var combat2 = 100;
+var speed2 = 100;
+var intelegence2 = 10;
+var power2 = 100;
+var strength2 = 100;
+var durability2 = 100;
+var combat2 = 10;
 //filler end
 
 // intelegency and comabt ability affect how often a hero lands a good hit on apponent
@@ -44,12 +44,12 @@ else if (intelegence2+combat2 <= 150 && intelegence2+combat2 >100){
 else{goodHit2 = 0};
 
 // frequency of blocking
-var blockAbility2 = Math.round(20 + (.3 * speed2));
-var blockAbility1 = Math.round(20 + (.3 * speed1));
+var blockAbility2 = Math.round(80 + (.2*speed2 - .1*speed1));
+var blockAbility1 = Math.round(80 + (.2*speed1 - .1*speed2));
 
 // variable for special move prequency
-var intelegenceAspect1 = Math.round(10 + (.4 * intelegence1));
-var intelegenceAspect2 = Math.round(10 + (.4 * intelegence2));
+var intelegenceAspect1 = Math.round(20 + (.3 * intelegence1));
+var intelegenceAspect2 = Math.round(20 + (.3 * intelegence2));
 
 // hero 1 health
 var healthBar1 = $(".healthBar1");
@@ -62,6 +62,7 @@ var healthBarText2 = $("#healthBarText2")
 //button for turns
 var nextMove = $(".nextMove");
 nextMove.text(hero1 + "'s turn!")
+$("#PlayerOne").addClass("turn")
 var message1 = $('#messageBox1')
 var message2 = $('#messageBox2')
 
@@ -134,7 +135,7 @@ $(document).on("click", "#combatify1", function () {
     // asdds special combat damage to normal damage 
     damageDealt = hitPower1 + combatStuff1
     // if a block is iniated, new button is created. user must the click button with the combatify id
-    if (10 < Block && Block < blockAbility2) {
+    if (50 < Block && Block < blockAbility2) {
         $("#blockify2").removeClass("is-hidden");
 
 
@@ -150,7 +151,7 @@ $(document).on("click", "#combatify2", function () {
     $("#combatify2").addClass("is-hidden")
     damageDealt = hitPower2 + combatStuff2
     
-    if (10 < Block && Block < blockAbility1) {
+    if (50 < Block && Block < blockAbility1) {
         $("#blockify1").removeClass("is-hidden");
 
 
@@ -203,7 +204,7 @@ function player1() {
         // hero damage is set
         damageDealt = hitPower1
         // similar to bombat move: faster the player, higher chance of blocking show
-        if (10 < Block && Block < blockAbility2) {
+        if (50 < Block && Block < blockAbility2) {
             // creates button and waits for user to click blockify button above 
             $("#blockify2").removeClass("is-hidden");
             console.log(hitPower1)
@@ -228,6 +229,7 @@ function player2() {
     Combat = Math.floor(Math.random() * 101);
     Block = Math.floor(Math.random() * 101);
     hitPower2 = Math.floor(Math.random() * 9 - goodHit2) + damage2 - 8 + goodHit2;
+    console.log(Combat)
 
     
 
@@ -239,7 +241,7 @@ function player2() {
     }
     else {
         damageDealt = hitPower2
-        if (10 < Block && Block < blockAbility1) {
+        if (50 < Block && Block < blockAbility1) {
             
             $("#blockify1").removeClass("is-hidden");
          
@@ -266,14 +268,17 @@ function player1End(){
               }, 700);
             healthBarText2.text(health2 + "/" + healthKeep2)
             if (health2 <= 0) {
-                location.replace("https://www.w3schools.com")
+                location.replace("victor.html")
             }
             nextMove.removeClass("is-hidden")
+            $("#PlayerTwo").addClass("turn")
+            $("#PlayerOne").removeClass("turn")
+
 }
 
 function player2End(){
     // populates message over hero who has taken damage
-    message1.html(hero1 + " lost " + damageDealt + " health!")
+    message1.html(hero1 + " lost " + Math.round(damageDealt) + " health!")
         //new health     
     health1 = Math.round(health1 - damageDealt)
             // sets health to a number between 1 - 100
@@ -289,8 +294,11 @@ function player2End(){
             healthBarText1.text(health1 + "/" + healthKeep1)
             // if a players health hits 0, match is over, brings user to next page
             if (health1 <= 0) {
-                location.replace("https://www.w3schools.com")
+                location.replace("victor.html")
             }
             // shows fight button to allow next player to go 
             nextMove.removeClass("is-hidden")
+
+            $("#PlayerOne").addClass("turn")
+            $("#PlayerTwo").removeClass("turn")
 }
