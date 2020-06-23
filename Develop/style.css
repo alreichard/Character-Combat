@@ -97,12 +97,7 @@ body {
 
   }
 
-  .playerOne {
-      padding-left: 90px;
-  }
-  .playerTwo {
-    padding-left: 90px;
-}
+  
 .turn {
     color: blue;
 }

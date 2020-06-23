@@ -1,21 +1,31 @@
 //filler
-var hero1 = "superman"
-var speed1 = 100;
-var intelegence1 = 100;
-var power1 = 100;
-var strength1 = 100;
-var durability1 = 100;
-var combat1 = 100;
+var superAll1 = []
+superAll1 = JSON.parse(localStorage.getItem("text"));
 
-var hero2 = "batman"
-var speed2 = 100;
-var intelegence2 = 10;
-var power2 = 100;
-var strength2 = 100;
-var durability2 = 100;
-var combat2 = 10;
+var alignment1 = superAll1[7]
+var hero1 = superAll1[8]
+var speed1 = parseInt(superAll1[3])
+var intelegence1 = parseInt(superAll1[1])
+var power1 = parseInt(superAll1[5])
+var strength1 = parseInt(superAll1[2])
+var durability1 = parseInt(superAll1[4])
+var combat1 = parseInt(superAll1[6])
+
+var superAll2 = []
+superAll2 = JSON.parse(localStorage.getItem("text2"));
+var alignment2 = superAll2[7]
+var hero2 = superAll2[8]
+var speed2 = parseInt(superAll2[3])
+var intelegence2 = parseInt(superAll2[1])
+var power2 = parseInt(superAll2[5])
+var strength2 = parseInt(superAll2[2])
+var durability2 = parseInt(superAll2[4])
+var combat2 = parseInt(superAll2[6])
+console.log(superAll1)
 //filler end
-
+$(".playerTwo").attr("src", superAll2[0])
+$(".playerOne").attr("src", superAll1[0])
+console.log(superAll1[0])
 // intelegency and comabt ability affect how often a hero lands a good hit on apponent
 var goodHit1 = 0;
 
@@ -48,8 +58,8 @@ var blockAbility2 = Math.round(80 + (.2*speed2 - .1*speed1));
 var blockAbility1 = Math.round(80 + (.2*speed1 - .1*speed2));
 
 // variable for special move prequency
-var intelegenceAspect1 = Math.round(20 + (.3 * intelegence1));
-var intelegenceAspect2 = Math.round(20 + (.3 * intelegence2));
+var intelegenceAspect1 = Math.round(10 + (.4 * intelegence1));
+var intelegenceAspect2 = Math.round(10 + (.4 * intelegence2));
 
 // hero 1 health
 var healthBar1 = $(".healthBar1");

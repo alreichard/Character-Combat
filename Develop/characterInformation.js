@@ -24,7 +24,7 @@ $(document).ready(function () {
 
         $.when(ajax).done(function (response) {
             var results = response.results[0];
-            var imageVar = ("src", "https://www.superherodb.com/pictures2/portraits/10/100/" + results.id + ".jpg")
+            var imageVar = results.image.url
             var intelligenceVar = (results.powerstats.intelligence)
             var strengthVar = (results.powerstats.strength)
             var speedVar = (results.powerstats.speed)
@@ -32,11 +32,12 @@ $(document).ready(function () {
             var powerVar = (results.powerstats.power)
             var combatVar = (results.powerstats.combat)
             var alignmentVar = (results.biography.alignment)
-            console.log(intelligenceVar)
+            var nameVar = (results.name)
+            console.log(imageVar)
 
             // Generate the HTML content dynamically 
 
-            var image = $("<img>").attr("src", "https://www.superherodb.com/pictures2/portraits/10/100/" + results.id + ".jpg")
+            var image = $("<img>").attr("src", results.image.url)
             var intelligence = $("<p>").text(results.powerstats.intelligence)
             var strength = $("<p>").text(results.powerstats.strength)
             var speed = $("<p>").text(results.powerstats.speed)
@@ -44,6 +45,7 @@ $(document).ready(function () {
             var power = $("<p>").text(results.powerstats.power)
             var combat = $("<p>").text(results.powerstats.combat)
             var alignment = $("<p>").text(results.biography.alignment)
+            var name = $("<p>").text(results.name)
 
             console.log(image)
 
@@ -51,13 +53,13 @@ $(document).ready(function () {
             $("#card1").removeClass("none")
             $("#vs").removeClass("none")
             $(".footer").removeClass("none")
-            $(".image1").append($("<img>").html(results.image.url))
-            $(".statsOne").append("Intelligence Lvl:", intelligence, "Strength Lvl:", strength, "Speed:", speed, "Durability:", durability, "Power Lvl:", power, "Combat Lvl:", combat, "Good or Bad side?", alignment)
+            $(".image1").append(image)
+            $(".statsOne").append("name: ", name, "Intelligence Lvl:", intelligence, "Strength Lvl:", strength, "Speed:", speed, "Durability:", durability, "Power Lvl:", power, "Combat Lvl:", combat, "Good or Bad side?", alignment)
             
             // Saving Function
-            var Character = [imageVar, intelligenceVar, strengthVar, speedVar, durabilityVar, powerVar, combatVar, alignmentVar]
+            var Character = [imageVar, intelligenceVar, strengthVar, speedVar, durabilityVar, powerVar, combatVar, alignmentVar, nameVar]
             localStorage.setItem("text", JSON.stringify(Character));
-            console.log(Character)
+            console.log(image)
         })
 
     })
@@ -84,10 +86,9 @@ $(document).ready(function () {
             method: "GET"
         })
 
-        $.when(ajax).then(function (response) {
+        $.when(ajax).done(function (response) {
             var results = response.results[0];
-            var results = response.results[0];
-            var imageVar = ("src", "https://www.superherodb.com/pictures2/portraits/10/100/" + results.id + ".jpg")
+            var imageVar = (results.image.url)
             var intelligenceVar = (results.powerstats.intelligence)
             var strengthVar = (results.powerstats.strength)
             var speedVar = (results.powerstats.speed)
@@ -95,10 +96,12 @@ $(document).ready(function () {
             var powerVar = (results.powerstats.power)
             var combatVar = (results.powerstats.combat)
             var alignmentVar = (results.biography.alignment)
+            var nameVar = (results.name)
+            console.log(imageVar)
 
             // Generate the HTML content dynamically 
 
-            var image = $("<img>").attr("src", "https://www.superherodb.com/pictures2/portraits/10/100/" + results.id + ".jpg")
+            var image = $("<img>").attr("src", results.image.url)
             var intelligence = $("<p>").text(results.powerstats.intelligence)
             var strength = $("<p>").text(results.powerstats.strength)
             var speed = $("<p>").text(results.powerstats.speed)
@@ -106,6 +109,7 @@ $(document).ready(function () {
             var power = $("<p>").text(results.powerstats.power)
             var combat = $("<p>").text(results.powerstats.combat)
             var alignment = $("<p>").text(results.biography.alignment)
+            var name = $("<p>").text(results.name)
             console.log(image)
             console.log(results.biography.alignment)
             console.log(results)
@@ -114,18 +118,23 @@ $(document).ready(function () {
             $("#card2").removeClass("none")
             $("#vs").removeClass("none")
             $(".footer").removeClass("none")
-            $(".image2").append($("<img>").html(results.image.url))
-            $(".statsTwo").append("Intelligence Lvl:", intelligence, "Strength Lvl:", strength, "Speed:", speed, "Durability:", durability, "Power Lvl:", power, "Combat Lvl:", combat, "Good or Bad side?", alignment)
+            $(".image2").append(image)
+            $(".statsTwo").append("Name: ", name, "Intelligence Lvl:", intelligence, "Strength Lvl:", strength, "Speed:", speed, "Durability:", durability, "Power Lvl:", power, "Combat Lvl:", combat, "Good or Bad side?", alignment)
             
             // Saving Function
-            var Character = [imageVar, intelligenceVar, strengthVar, speedVar, durabilityVar, powerVar, combatVar, alignmentVar]
+            var Character = [imageVar, intelligenceVar, strengthVar, speedVar, durabilityVar, powerVar, combatVar, alignmentVar, nameVar]
             localStorage.setItem("text2", JSON.stringify(Character));
             console.log(Character)
+            console.log(image)
         
 
         })
 
     })
+
+    $(document).on("click", ".battle" , function(){
+        location.replace("Develop/combat.html")
+    });
 
     
    
