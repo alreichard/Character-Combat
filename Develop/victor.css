@@ -1,20 +1,11 @@
 .vcolor {
     background-color: black;
 }
+
 .hcolor {
     background-color: white;
-}
-img {
-    width: 100%;
 }
 
 .vfooter {
     background-color: black;
-}
-.hfooter{
-    background-color: white;
-}
-
-.btn{
-    color: red;
 }
