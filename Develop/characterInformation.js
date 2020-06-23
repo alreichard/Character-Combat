@@ -24,7 +24,15 @@ $(document).ready(function () {
 
         $.when(ajax).done(function (response) {
             var results = response.results[0];
-            console.log(results)
+            var imageVar = ("src", "https://www.superherodb.com/pictures2/portraits/10/100/" + results.id + ".jpg")
+            var intelligenceVar = (results.powerstats.intelligence)
+            var strengthVar = (results.powerstats.strength)
+            var speedVar = (results.powerstats.speed)
+            var durabilityVar = (results.powerstats.durability)
+            var powerVar = (results.powerstats.power)
+            var combatVar = (results.powerstats.combat)
+            var alignmentVar = (results.biography.alignment)
+            console.log(intelligenceVar)
 
             // Generate the HTML content dynamically 
 
@@ -35,14 +43,21 @@ $(document).ready(function () {
             var durability = $("<p>").text(results.powerstats.durability)
             var power = $("<p>").text(results.powerstats.power)
             var combat = $("<p>").text(results.powerstats.combat)
-            var image = $("<img>").html(results.image.url)
+            var alignment = $("<p>").text(results.biography.alignment)
 
             console.log(image)
 
             // Transfer the Open Weather object into the respected fields in our html
             $("#card1").removeClass("none")
+            $("#vs").removeClass("none")
+            $(".footer").removeClass("none")
             $(".image1").append($("<img>").html(results.image.url))
-            $(".statsOne").append("Intelligence Lvl:", intelligence, "Strength Lvl:", strength, "Speed:", speed, "Durability:", durability, "Power Lvl:", power, "Combat Lvl:", combat)
+            $(".statsOne").append("Intelligence Lvl:", intelligence, "Strength Lvl:", strength, "Speed:", speed, "Durability:", durability, "Power Lvl:", power, "Combat Lvl:", combat, "Good or Bad side?", alignment)
+            
+            // Saving Function
+            var Character = [imageVar, intelligenceVar, strengthVar, speedVar, durabilityVar, powerVar, combatVar, alignmentVar]
+            localStorage.setItem("text", JSON.stringify(Character));
+            console.log(Character)
         })
 
     })
@@ -71,7 +86,15 @@ $(document).ready(function () {
 
         $.when(ajax).then(function (response) {
             var results = response.results[0];
-            console.log(results)
+            var results = response.results[0];
+            var imageVar = ("src", "https://www.superherodb.com/pictures2/portraits/10/100/" + results.id + ".jpg")
+            var intelligenceVar = (results.powerstats.intelligence)
+            var strengthVar = (results.powerstats.strength)
+            var speedVar = (results.powerstats.speed)
+            var durabilityVar = (results.powerstats.durability)
+            var powerVar = (results.powerstats.power)
+            var combatVar = (results.powerstats.combat)
+            var alignmentVar = (results.biography.alignment)
 
             // Generate the HTML content dynamically 
 
@@ -82,30 +105,30 @@ $(document).ready(function () {
             var durability = $("<p>").text(results.powerstats.durability)
             var power = $("<p>").text(results.powerstats.power)
             var combat = $("<p>").text(results.powerstats.combat)
-
+            var alignment = $("<p>").text(results.biography.alignment)
             console.log(image)
+            console.log(results.biography.alignment)
+            console.log(results)
 
             // Transfer the Open Weather object into the respected fields in our html
             $("#card2").removeClass("none")
-            $(".image2").append(image)
-            $(".statsTwo").append("Intelligence Lvl:", intelligence, "Strength Lvl:", strength, "Speed:", speed, "Durability:", durability, "Power Lvl:", power, "Combat Lvl:", combat)
-
-        })
-
-    })
-
-    //Saving Function
-    var arrSearchedCharacters = JSON.parse(localStorage.getItem("text"))
-    $(".searchOne").on("click", function () {
-        var Character = $(".character-name",).val()
+            $("#vs").removeClass("none")
+            $(".footer").removeClass("none")
+            $(".image2").append($("<img>").html(results.image.url))
+            $(".statsTwo").append("Intelligence Lvl:", intelligence, "Strength Lvl:", strength, "Speed:", speed, "Durability:", durability, "Power Lvl:", power, "Combat Lvl:", combat, "Good or Bad side?", alignment)
+            
+            // Saving Function
+            var Character = [imageVar, intelligenceVar, strengthVar, speedVar, durabilityVar, powerVar, combatVar, alignmentVar]
+            localStorage.setItem("text2", JSON.stringify(Character));
+            console.log(Character)
         
-        arrSearchedCharacters.push({
-            name: Character, 
-            stats: image, intelligence, strength, speed, durability
+
         })
 
-        localStorage.setItem("text", JSON.stringify(arrSearchedCharacters));
     })
+
+    
+   
 
 
 })
