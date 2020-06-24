@@ -225,7 +225,7 @@ function player1() {
     Combat = Math.floor(Math.random() * 101);
     Block = Math.floor(Math.random() * 101);
     // determines how well a heros punch lands 
-    hitPower1 = Math.floor(Math.random() * 9 - goodHit1) + damage1 - 8 + goodHit1;
+    hitPower1 = Math.floor(Math.random() * (9 - goodHit1)) + damage1 - 8 + goodHit1;
     
     // the special move lands if the combatBlock number is between 10 and
     // the number created by hero intelegence: smarter = higher chance
@@ -265,7 +265,7 @@ function player2() {
 
     Combat = Math.floor(Math.random() * 101);
     Block = Math.floor(Math.random() * 101);
-    hitPower2 = Math.floor(Math.random() * 9 - goodHit2) + damage2 - 8 + goodHit2;
+    hitPower2 = Math.floor(Math.random() * (9 - goodHit2)) + damage2 - 8 + goodHit2;
     console.log(Combat)
 
     
